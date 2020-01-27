@@ -1,10 +1,10 @@
 import React, {useContext} from 'react';
-import useInputState from '../hooks/useInputState';
+import useInputState from '../../hooks/useInputState';
 import axios from 'axios';
 import {useHistory} from 'react-router-dom';
-import {SessionContext} from '../contexts/SessionContext';
+import {SessionContext} from '../../contexts/SessionContext';
 
-function LoginForm(){
+export default () => {
     const {setToken} = useContext(SessionContext);
     const [mail, mailHandleChange, ] = useInputState("");
     const [pass, passHandleChange, /*passReset*/] = useInputState("");
@@ -15,7 +15,6 @@ function LoginForm(){
         const data = {'email':mail, 'password': pass};
         const res = await axios.post(endpoint, data);
         if (res.status===200){
-            console.log(res.data['token']);
             setToken(res.data['token']);
             //mailReset();
             //passReset();
@@ -40,5 +39,3 @@ function LoginForm(){
         </div>
     );
 }
-
-export default LoginForm;

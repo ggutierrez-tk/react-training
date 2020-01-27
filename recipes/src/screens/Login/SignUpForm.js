@@ -1,10 +1,10 @@
 import React, {useContext} from 'react';
-import useInputState from '../hooks/useInputState';
+import useInputState from '../../hooks/useInputState';
 import axios from 'axios';
 import {useHistory} from 'react-router-dom';
-import {SessionContext} from '../contexts/SessionContext';
+import {SessionContext} from '../../contexts/SessionContext';
 
-function SignUpForm(props){
+export default function SignUpForm(){
     //TODO: put this in a config file instead
     const endpoint = "http://localhost:8000/api/user/create/";
     
@@ -55,5 +55,3 @@ function SignUpForm(props){
       </div>
     );
 }
-
-export default SignUpForm;

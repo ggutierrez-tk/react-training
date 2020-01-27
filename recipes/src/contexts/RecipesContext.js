@@ -1,45 +1,30 @@
-import React, {createContext, useContext} from 'react';
-import axios from 'axios';
+import React, {createContext} from 'react';
 
-import useFetchedElements from '../hooks/useFetchedElements'
-import { SessionContext } from './SessionContext';
+import useBasicApi from '../hooks/useBasicApi';
 
 export const RecipesContext = createContext();
 
 export function RecipesContextProvider(props){
-    const {token} = useContext(SessionContext);
-    const authheaders = {'Authorization': `Token ${token}`};
+    const ingredientsEndpoint = "http://localhost:8000/api/recipe/ingredients/"
+    const recipesEndpoint = "http://localhost:8000/api/recipe/recipes/"
+    const tagsEndpoint = "http://localhost:8000/api/recipe/tags/"
+    const [ingredients, addIngredient, refreshIngredients] = useBasicApi(ingredientsEndpoint);
+    const [recipes, addRecipe, refreshRecipes] = useBasicApi(recipesEndpoint);
+    const [tags, addTag, refreshTags] = useBasicApi(tagsEndpoint);
 
-    const retrieveIngredients = async  () => {
-        const endpoint = "http://localhost:8000/api/recipe/ingredients/";
-        const res = await axios.get(endpoint, {'headers': authheaders})
-        return res;
-    }
-    const [ingredients, addIngredient, refreshIngredients] = useFetchedElements(retrieveIngredients);
-
-    const retrieveRecipes = async  () => {
-        const endpoint = "http://localhost:8000/api/recipe/ingredients/";
-        const res = await axios.get(endpoint, {'headers': authheaders})
-        return res;
-    }
-
-    const [recipes, addRecipe, refreshRecipes] = useFetchedElements(retrieveRecipes);
-
-    const refresh = () => {
+    const refresh = async () => {
         refreshIngredients();
         refreshRecipes();
+        refreshTags();
     }
 
     const values = {
-        ingredients,
-        addIngredient,
-        refreshIngredients,
-        recipes,
-        addRecipe,
-        refreshRecipes,
+        ingredients, addIngredient, refreshIngredients,
+        recipes, addRecipe, refreshRecipes,
+        tags, addTag, refreshTags,
         refresh,
     }
-
+    
     return (
         <RecipesContext.Provider value={values}>
             {props.children}

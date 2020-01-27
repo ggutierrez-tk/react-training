@@ -1,0 +1,25 @@
+.ItemDisplay {
+    margin: 8px;
+    border-radius: 16px;
+    padding: 4px 16px 4px 16px;
+    background: #606060;
+    height: min-content;
+}
+
+/*.Ingredient{
+    width: 100%;
+    height: min-content;
+    background: #404040;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 1.5em;
+    padding: 0.5em;
+}
+*/
+.ItemDisplay a {
+    color: rgb(255, 255, 255);
+    transition: all 0.5s ease;
+    text-decoration: none;
+    font-size: larger;
+}

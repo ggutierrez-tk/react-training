@@ -1,6 +1,7 @@
 import React, {useContext} from 'react';
-import {SessionContext} from '../contexts/SessionContext'
-function Logout(){
+import {SessionContext} from '../../contexts/SessionContext'
+
+export default () => {
     const {setToken} = useContext(SessionContext);
     setToken("");
     return(
@@ -8,4 +9,3 @@ function Logout(){
     )
 }
 
-export default Logout;

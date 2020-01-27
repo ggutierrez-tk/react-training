@@ -1,13 +1,12 @@
 import React from 'react';
-import './Login.css';
 import Tabs from 'react-bootstrap/Tabs'
 import Tab from 'react-bootstrap/Tab'
 import LoginForm from './LoginForm';
 import SignUpForm from './SignUpForm';
 
+import './Login.css';
 
-function Login(){
-    
+export default () => {
     return (
         <div className="LoginPage">
             <div>
@@ -23,5 +22,3 @@ function Login(){
         </div>
     );
 }
-
-export default Login;

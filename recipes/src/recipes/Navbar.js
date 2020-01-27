@@ -8,6 +8,7 @@ function Navbar() {
         <div className="Navbar">
             <NavLink activeClassName='Navbar-active' exact to='/recipes'>Recipes</NavLink>
             <NavLink activeClassName='Navbar-active' exact to='/ingredients'>Ingredients</NavLink>
+            <NavLink activeClassName='Navbar-active' exact to='/tags'>Tags</NavLink>
             <NavLink activeClassName='Navbar-active' exact to='/logout'>Log out</NavLink>
         </div>
     );

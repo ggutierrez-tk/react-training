@@ -1,0 +1,27 @@
+.RecipeBasicDisplay{
+    display: flex;
+    flex-basis: 0;
+    align-items: center;
+}
+
+.RecipeBasicDisplay-section{
+    width: 20%;
+}
+
+.RecipeBasicDisplay-section div{
+    padding:8px;
+}
+
+.RecipeBasicDisplay-icon{
+    height: 32px;
+    width: 32px;
+}
+
+.RecipeBasicDisplay-itemlist{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.RecipeBasicDisplay-item{
+    padding:8px;
+}

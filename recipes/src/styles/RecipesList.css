@@ -1,0 +1,14 @@
+.RecipesList{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.RecipesList-empty{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    padding-top: 5rem;
+}
+
