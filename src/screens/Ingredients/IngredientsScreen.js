@@ -8,7 +8,7 @@ export default () => {
     const {ingredients, addIngredient} = useContext(RecipesContext)
     return (
         <div className="Screen">
-            <div className="Screen-form"><BasicItemNew addFunction={addIngredient} itemLabel="Ingrediente"/></div>
+            <div className="Screen-form"><BasicItemNew addFunction={addIngredient} itemLabel="Ingredient"/></div>
             <div className="Screen-basiclist"> <BasicItemList items={ingredients} target={'ingredient'}/></div>
             <div className="Screen-backbutton"><BackButton/></div>
         </div>

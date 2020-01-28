@@ -13,11 +13,11 @@ import IngredientDetail from '../screens/IngredientDetail/IngredientDetail';
 import TagDetail from '../screens/TagDetail/TagDetail';
 
 export default function RecipeApp(){
-    const {isLoggedIn} = useContext(SessionContext);
+    const {isLoggedIn, token} = useContext(SessionContext);
     const {refresh} = useContext(RecipesContext);
     useEffect(() => {
-        refresh();
-    }, [isLoggedIn])
+        if (isLoggedIn()) refresh();
+    }, [token])
 
     return (
         <div>

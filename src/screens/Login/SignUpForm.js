@@ -16,7 +16,12 @@ export default function SignUpForm(){
     const {login} = useContext(SessionContext);
     const handleSubmit = async (event) => {
         event.preventDefault();
-        //TODO: perform some validation
+        if (pass !== passConfirm){
+          alert("Password and password confirmation mismatch");
+          passReset();
+          passConfirmReset();
+          return;
+        }
         let data ={'name': name, 'email': mail, 'password': pass};
         const res = await axios.post(endpoint, data);
         if (res.status===201){
@@ -43,11 +48,15 @@ export default function SignUpForm(){
             </tr>
             <tr>
               <td>password:</td>
-              <td><input type="password" value={pass} label="password" onChange={passHandleChange}/></td>
+              <td><input type="password" value={pass} label="password" onChange={passHandleChange}
+                style={{color: (pass.length >=8 )?'green':'red'}}
+              /></td>
             </tr>
             <tr>
               <td>confirm password:</td>
-              <td><input type="password" value={passConfirm} label="password" onChange={passConfirmHandleChange}/></td>
+              <td><input type="password" value={passConfirm} label="password" onChange={passConfirmHandleChange}
+                    style={{color: (pass===passConfirm)?'green':'red'}}
+              /></td>
             </tr>
           </tbody></table>
           <button>Sign up</button>

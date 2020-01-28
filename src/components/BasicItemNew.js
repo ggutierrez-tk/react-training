@@ -13,7 +13,7 @@ export default function BasicItemNew({addFunction, itemLabel}){
         <div>
             <form onSubmit={handleSubmit} >
                 <span>{itemLabel}: <input value={name} label={itemLabel} onChange={nameHandleChange} /></span>
-                <button>Añadir</button>
+                <button>Add</button>
             </form>
         </div>
     );

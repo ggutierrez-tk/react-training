@@ -5,7 +5,11 @@
 }
 
 .Screen-form {
-    
+    padding: 20px;
+}
+
+.Screen-form button {
+    margin: 8px;
 }
 
 .Screen-list {

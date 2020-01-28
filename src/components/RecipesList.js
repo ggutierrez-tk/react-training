@@ -2,8 +2,6 @@ import React from 'react';
 import RecipeBasicDisplay from './RecipeBasicDisplay';
 import '../styles/RecipesList.css';
 export default function RecipesList(props){
-    console.log(props.recipes);
-    console.log(props.recipes===[]);
     return (
         <div>
             {(props.recipes !== undefined  && props.recipes.length>0)?
